@@ -1,0 +1,27 @@
+name: Feedback or idea
+description: Something that would make Gateway better, or a note about how it felt.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas and rough notes are welcome. Odyssey Journal feedback belongs on the Odyssey Journal issues, not here.
+
+        Do not paste API keys or your .env file.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What is on your mind?
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of note is this?
+      options:
+        - "An idea"
+        - "Something was confusing"
+        - "Something felt good"
+        - "Other"
+    validations:
+      required: true
