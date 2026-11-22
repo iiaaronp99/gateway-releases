@@ -13,10 +13,10 @@ Ollama is optional. It is the free model that runs on your PC. Cloud chat works 
 
 ## Installing Gateway
 
-1. Open https://github.com/iiaaronp99/gateway-releases/releases/latest
-2. Click the file whose name ends in `-setup.exe`.
-3. Windows may say "Windows protected your PC". The app is not signed, because a certificate costs money and this beta stays free. Click **More info**, then **Run anyway**.
-4. Finish the installer and open Gateway.
+1. Download the installer: https://github.com/iiaaronp99/gateway-releases/releases/latest/download/Ape1ron-Gateway-Setup.exe
+   The file is named `Ape1ron-Gateway-Setup.exe`. This link always gets the newest version.
+2. Open that file. Windows may say "Windows protected your PC". The app is not signed, because a certificate costs money and this beta stays free. Click **More info**, then **Run anyway**.
+3. Finish the installer and open Gateway.
 
 The installer is the chat window. It does not start the models by itself. The next section does that.
 

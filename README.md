@@ -5,7 +5,7 @@ This is the public page for the Gateway friend beta.
 - Download page (after GitHub Pages is turned on): https://iiaaronp99.github.io/gateway-releases/
 - Friend guide: [FRIEND-GUIDE.md](FRIEND-GUIDE.md)
 - Connect other apps: [connect-other-apps.md](connect-other-apps.md)
-- Windows installer: https://github.com/iiaaronp99/gateway-releases/releases/latest
+- Windows installer: [Ape1ron-Gateway-Setup.exe](https://github.com/iiaaronp99/gateway-releases/releases/latest/download/Ape1ron-Gateway-Setup.exe)
 - Gateway bundle (no secrets): [gateway-bundle.zip](gateway-bundle.zip)
 
 Your keys stay on your computer. This repo does not collect usage data.
