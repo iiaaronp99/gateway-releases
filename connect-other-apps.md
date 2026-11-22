@@ -3,7 +3,7 @@
 Gateway speaks the OpenAI HTTP shape on your own computer.
 
 - Base URL for OpenAI-style apps: `http://localhost:4000/v1`
-- Key: the Gateway password, `LITELLM_MASTER_KEY` in the `.env` next to `docker-compose.yml`. It should start with `sk-`. It is not a Gemini, OpenAI, or Anthropic key.
+- Key: a key for that app. An app on this computer can ask Gateway for one. See [register-an-app.md](register-an-app.md). The Gateway password (`LITELLM_MASTER_KEY`) still works, and it is not a Gemini, OpenAI, or Anthropic key.
 - A good first model name: `auto`. `t0` is the model on this PC (Ollama). `t1` and `smart` are the free cloud pool. `t2` is the stronger Gemini model.
 
 Each app below says which of those to paste, then a test. The test message is: Reply with the single word: pong. A working reply contains pong.

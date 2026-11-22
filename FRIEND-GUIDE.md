@@ -31,7 +31,7 @@ The model server is a zip, because the app project is private. The zip has no se
    - Copy `.env.example` and rename the copy to `.env`.
    - Right-click `.env`, Open with, Notepad. Paste your own keys. Save.
    - Double-click `Start-Gateway.bat`. The first time can take a few minutes.
-4. Go back to the Gateway app. If it says the gateway is not running, wait a minute and try again.
+4. Go back to the Gateway app. It reads the gateway password from that `.env` and stores it. You do not paste the password into the app. If it says the gateway is not running, wait a minute and try again.
 
 The app may say to run a command in "the gateway folder". For this beta, that folder is the unzipped bundle.
 
@@ -86,6 +86,8 @@ Odyssey Journal is Aaron's other app. It is not Gateway.
 Odyssey talks to your Gateway. Your Gateway key stays yours. There is no shared key.
 
 On first run, Odyssey asks you to pick a provider. There is no default.
+
+Odyssey can also ask your Gateway for its own key, so it does not have to share the password you use in the chat window. That only works from this computer. The short note for app authors is `docs/register-an-app.md` inside the project. Friends can skip that file and paste the Gateway password as below.
 
 1. Open Odyssey Journal.
 2. Open the Settings gear.
