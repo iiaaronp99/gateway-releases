@@ -16,16 +16,17 @@ Ollama is optional. It is a model that runs on your PC. If it is already open, G
 
 1. Download the installer: https://github.com/iiaaronp99/gateway-releases/releases/latest/download/Ape1ron-Gateway-Setup.exe
    The file is named `Ape1ron-Gateway-Setup.exe`. This link always gets the newest version.
-2. Open that file. Windows may say "Windows protected your PC". The app is not signed, because a certificate costs money and this beta stays free. Click **More info**, then **Run anyway**.
+2. Open that file. Windows may say "Windows protected your PC" and "Unknown publisher". That is expected during this early beta, because the app is not code-signed yet. It means the app is new, not a virus. Click **More info**, then **Run anyway**. That is safe when you downloaded it from [ape1ron.space/download](https://ape1ron.space/download) or the official release page.
 3. Finish the installer and open Gateway.
 
 ## Starting the gateway
 
-1. Open Gateway. It creates a password and stores it on this PC. You never see that password.
-2. Click **Sign in with OpenRouter**. Your browser opens. Sign in there, and allow the key.
-3. Come back to Gateway. Chat is open. The model is `auto`.
+1. Open Gateway. It creates a password and stores it on this PC. Open Settings and press **Show** or **Copy** when another tool asks for that password.
+2. On the welcome step, wait until it says Gateway is ready, then click **Next**.
+3. Click **Sign in with OpenRouter**. Your browser opens. Sign in there, and allow the key.
+4. Gateway shows **You're ready**. Click **Start chatting**. The model is `auto`.
 
-If you already have a key, choose **I already have a key**, paste it, and click **Save key**, then **Start chatting**.
+If you already have a key, choose **Use your own API key**, paste it, click **Save key**, then **Next**, then **Start chatting**. If Ollama is already running, you can choose **Use local Ollama** instead.
 
 Before a chat that uses a free model, Gateway tells you that those providers may use what you type for training. The usual `auto` route asks OpenRouter to avoid providers that train on prompts.
 
@@ -35,25 +36,13 @@ If the window says Gateway is still starting, wait a few seconds. If it stays, q
 
 Each friend uses a separate account. Do not put someone else's key in the app, and do not send your key in chat.
 
-The usual way is **Sign in with OpenRouter** on the first screen. **I already have a key** saves a pasted key into Gateway. You do not open a `.env` file.
-
-The lines below are only for someone running the optional Docker setup, not for the normal app:
-
-| Line | What to paste |
-| --- | --- |
-| `GEMINI_API_KEY` | Your key from [Google AI Studio](https://aistudio.google.com/apikey). The free tier is enough. |
-| `OPENROUTER_API_KEY` | Optional. Your key from [OpenRouter](https://openrouter.ai/keys). Free models on your own account are enough. |
-| `LITELLM_MASTER_KEY` | A password you make up. It should start with `sk-`. This is the Gateway key other apps will ask for. It is not a provider key. |
-
-No quotes, and no spaces around `=`. Save the file, then start that Docker setup again. The normal app does not use this file.
+The usual way is **Sign in with OpenRouter** in setup. **Use your own API key** saves a pasted key into Gateway. You do not open a `.env` file.
 
 Ollama, if you want a model on this PC:
 
 1. Install [Ollama](https://ollama.com/download) and open it.
 2. Open PowerShell and run `ollama pull llama3.2` for local chat (`t0`).
 3. Run `ollama pull nomic-embed-text` only if an app needs embeddings. The model name in Gateway is `embed`.
-
-More companies can be turned on in the Docker setup. `docs/add-a-free-provider.md` says how. Some of those are not free. Read the note before you uncomment one. Do not add a card if you want to stay at $0.
 
 In the Gateway app, the usual model name is `auto`. `t0` is the PC model. `t1` is the free cloud pool.
 
@@ -105,3 +94,19 @@ Gateway bugs and ideas go here: https://github.com/iiaaronp99/gateway-releases/i
 Pick **Bug report** or **Feedback or idea**. Do not paste API keys or your `.env` file.
 
 Odyssey problems do not go there. Use Odyssey's issues: https://github.com/iiaaronp99/odyssey-releases/issues
+
+## Optional Docker setup
+
+Skip this section if you are on Gateway 0.1.3. The installer `Ape1ron-Gateway-Setup.exe` is the only download you need, and it already includes the router. You do not set up Docker.
+
+The table below is only for someone who chooses the old Docker setup.
+
+| Line | What to paste |
+| --- | --- |
+| `GEMINI_API_KEY` | Your key from [Google AI Studio](https://aistudio.google.com/apikey). The free tier is enough. |
+| `OPENROUTER_API_KEY` | Optional. Your key from [OpenRouter](https://openrouter.ai/keys). Free models on your own account are enough. |
+| `LITELLM_MASTER_KEY` | A password you make up. It should start with `sk-`. This is the Gateway key other apps will ask for. It is not a provider key. |
+
+No quotes, and no spaces around `=`. Save the file, then start that Docker setup again. The normal app does not use this file.
+
+More companies can be turned on in that Docker setup. `docs/add-a-free-provider.md` says how. Some of those are not free. Read the note before you uncomment one. Do not add a card if you want to stay at $0.
