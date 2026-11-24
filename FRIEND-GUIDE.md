@@ -15,9 +15,11 @@ Ollama is optional. It is a model that runs on your PC. If it is already open, G
 ## Installing Gateway
 
 1. Download the installer: https://github.com/iiaaronp99/gateway-releases/releases/latest/download/Ape1ron-Gateway-Setup.exe
-   The file is named `Ape1ron-Gateway-Setup.exe`. This link always gets the newest version.
-2. Open that file. Windows may say "Windows protected your PC". The app is not signed, because a certificate costs money and this beta stays free. Click **More info**, then **Run anyway**.
+   The file is named `Ape1ron-Gateway-Setup.exe`. This link always gets the newest version. That file is the only download. It includes the router. You do not need a second zip.
+2. Open that file.
 3. Finish the installer and open Gateway.
+
+Windows may say "Windows protected your PC" and "Unknown publisher". That is expected for this early beta. The app is not code-signed yet. A signing certificate costs money, and this beta stays free. The warning means the app is new to Windows. It does not mean Windows found a virus. If you downloaded `Ape1ron-Gateway-Setup.exe` from https://ape1ron.space/download or from the download page above, you can safely click **More info**, then **Run anyway**.
 
 ## Starting the gateway
 
@@ -37,23 +39,11 @@ Each friend uses a separate account. Do not put someone else's key in the app, a
 
 The usual way is **Sign in with OpenRouter** on the first screen. **I already have a key** saves a pasted key into Gateway. You do not open a `.env` file.
 
-The lines below are only for someone running the optional Docker setup, not for the normal app:
-
-| Line | What to paste |
-| --- | --- |
-| `GEMINI_API_KEY` | Your key from [Google AI Studio](https://aistudio.google.com/apikey). The free tier is enough. |
-| `OPENROUTER_API_KEY` | Optional. Your key from [OpenRouter](https://openrouter.ai/keys). Free models on your own account are enough. |
-| `LITELLM_MASTER_KEY` | A password you make up. It should start with `sk-`. This is the Gateway key other apps will ask for. It is not a provider key. |
-
-No quotes, and no spaces around `=`. Save the file, then start that Docker setup again. The normal app does not use this file.
-
 Ollama, if you want a model on this PC:
 
 1. Install [Ollama](https://ollama.com/download) and open it.
 2. Open PowerShell and run `ollama pull llama3.2` for local chat (`t0`).
 3. Run `ollama pull nomic-embed-text` only if an app needs embeddings. The model name in Gateway is `embed`.
-
-More companies can be turned on in the Docker setup. `docs/add-a-free-provider.md` says how. Some of those are not free. Read the note before you uncomment one. Do not add a card if you want to stay at $0.
 
 In the Gateway app, the usual model name is `auto`. `t0` is the PC model. `t1` is the free cloud pool.
 
@@ -68,8 +58,6 @@ Other apps on this PC can use Gateway as an OpenAI-compatible server.
 The full click paths for Cursor, Continue, Cline, Open WebUI, Aider, LangChain, and a generic OpenAI SDK are in the connect guide: https://github.com/iiaaronp99/gateway-releases/blob/main/connect-other-apps.md
 
 One limit to know before you try Cursor: Cursor's servers make the request, so `http://localhost:4000/v1` does not work there. The connect guide says what is true and what a free tunnel would mean. The other apps in that list run on your PC and can use localhost.
-
-There is an optional check in the bundle folder, `compat-smoke.py`. It needs Python and a running gateway. Friends can skip it. The app's own test is enough.
 
 ## Getting Odyssey Journal
 
@@ -105,3 +93,21 @@ Gateway bugs and ideas go here: https://github.com/iiaaronp99/gateway-releases/i
 Pick **Bug report** or **Feedback or idea**. Do not paste API keys or your `.env` file.
 
 Odyssey problems do not go there. Use Odyssey's issues: https://github.com/iiaaronp99/odyssey-releases/issues
+
+## Optional Docker setup
+
+Skip this section if you installed Gateway with `Ape1ron-Gateway-Setup.exe`. The installer starts the router for you. You do not edit a file, and you do not download a zip.
+
+The lines below are only for someone running the optional Docker setup. The files are in the [gateway bundle zip](https://github.com/iiaaronp99/gateway-releases/raw/main/gateway-bundle.zip). It has no secrets in it.
+
+| Line | What to paste |
+| --- | --- |
+| `GEMINI_API_KEY` | Your key from [Google AI Studio](https://aistudio.google.com/apikey). The free tier is enough. |
+| `OPENROUTER_API_KEY` | Optional. Your key from [OpenRouter](https://openrouter.ai/keys). Free models on your own account are enough. |
+| `LITELLM_MASTER_KEY` | A password you make up. It should start with `sk-`. This is the Gateway key other apps will ask for. It is not a provider key. |
+
+No quotes, and no spaces around `=`. Save the file, then start that Docker setup again. The normal app does not use this file.
+
+More companies can be turned on in the Docker setup. `docs/add-a-free-provider.md` says how. Some of those are not free. Read the note before you uncomment one. Do not add a card if you want to stay at $0.
+
+There is an optional check in that folder, `compat-smoke.py`. It needs Python and a running gateway. Friends can skip it. The app's own test is enough.
